@@ -16,7 +16,7 @@ const UpdateUserForm = ({ userId, onSuccess, onCancel }) => {
           setLoading(false);
           return;
         }
-        const { data } = await axios.get(`http://localhost:5000/api/users/${userId}`, {
+        const { data } = await axios.get(`https://web-glaze-backend.onrender.com/api/users/${userId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -29,7 +29,7 @@ const UpdateUserForm = ({ userId, onSuccess, onCancel }) => {
       }
     };
     fetchUser();
-  }, [userId]);
+  }, [token,userId]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -45,7 +45,7 @@ const UpdateUserForm = ({ userId, onSuccess, onCancel }) => {
         setError("No token found. Please log in.");
         return;
       }
-      await axios.put(`http://localhost:5000/api/users/${userId}`, userData, {
+      await axios.put(`https://web-glaze-backend.onrender.com/api/users/${userId}`, userData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

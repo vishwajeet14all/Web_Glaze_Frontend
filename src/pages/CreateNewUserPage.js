@@ -23,7 +23,7 @@ export const CreateNewUserPage = () => {
         headers: { Authorization: `Bearer ${token}` },
       };
       const { data } = await axios.post(
-        "http://localhost:5000/api/users",
+        "https://web-glaze-backend.onrender.com/api/users",
         formData,
         config
       );
